@@ -1,0 +1,102 @@
+
+.col {
+  width: 88px;
+  display: inline-block;
+
+}
+.signup-container {
+  border: 1px solid black;
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px 50px;
+  position: relative;
+}
+div.row {
+  margin-bottom:10px;
+}
+.dropdown {
+  position: absolute;
+  cursor: pointer;
+}
+/* -------------- select mobile provider box---------------- */
+.select-mobile {
+  top: 0;
+  left: 113px;
+}
+.prov-box-container {
+  display: inline-block;
+  width: 128px;
+  position: relative;
+  /* left: 60px; */
+  padding-bottom: 5px;
+}
+.provider-box {
+  width: 128px;
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  text-align: center;
+  background-color: aqua;
+}
+.provider {
+}
+.provider:hover {
+  background: rgb(82, 82, 126);
+}
+/* -------------- select email box---------------- */
+.select-email {
+  left: 110px;
+  top: 0;
+}
+.email-box-container {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 5px;
+}
+.email-domain-box {
+  position: absolute;
+  display: none;
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: aqua;
+  width: 128px;
+}
+.email-domain-box > li:hover {
+  background: rgb(82, 82, 126);
+}
+
+/* -------------- select birthday box---------------- */
+.select-birth1 {
+  left: 252px;
+}
+.select-birth2 {
+  left: 405px;
+}
+.select-birth3 {
+  left: 559px;
+}
+.birth ul {
+  position: absolute;
+  margin: 0;
+  display: none;
+  list-style: none;
+  height: 100px;
+  overflow: scroll;
+  width: 128px;
+  padding: 0;
+  text-align: center;
+  background-color: aqua;
+}
+.birth div {
+  display: inline-block;
+}
+/* ------------signup btn-------------- */
+
+.signup {
+  text-align: center;
+  margin-top: 20px;
+}
