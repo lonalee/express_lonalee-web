@@ -11,9 +11,7 @@ document.querySelector('div.prov-box-container').addEventListener('click', () =>
 document.querySelector('ul.provider-box').addEventListener('blur', () => {
   event.currentTarget.style.display = 'none';
 })
-const providers = document.querySelectorAll('.provider');
-console.log(providers);
-providers.addEventListener('click', () => {
+document.querySelectorAll('.provider').addEventListener('click', () => {
   document.querySelector('input.mobile-number').value = event.target.textContent;
   event.currentTarget.parentNode.style.display = 'none';
   console.dir(event.currentTarget);

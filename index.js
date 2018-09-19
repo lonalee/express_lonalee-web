@@ -1,7 +1,8 @@
-var cool = require('cool-ascii-faces');
+require('dotenv').config();
+
 var express = require('express');
 var bodyParser = require('body-parser');
-var session = require('express-session');
+var mongoose = require('mongoose');
 var app = express();
 
 app.set('port', (process.env.PORT || 9999));
@@ -15,19 +16,25 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(session({
- secret: '@#@$MYSIGN#@$#$',
- resave: false,
- saveUninitialized: true
-}));
 
+// MONGODB process.env.MONGO_URI를 통해서 연결.
+
+mongoose.Promise = global.Promise;
+
+// CONNECT TO MONGODB SERVER
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+  .then(() => console.log('Successfully connected to mongodb'))
+  .catch(e => console.error(e));
+//
 app.get('/', function(request, response) {
   response.render('pages/index')
 });
 
-app.get('/cool', function(request, response) {
-  response.send(cool());
-});
+
+// 참고 url 요청
+// app.get('/cool', function(request, response) {
+//   response.send(cool());
+// });
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

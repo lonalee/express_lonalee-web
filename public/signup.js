@@ -1,22 +1,39 @@
-//--------------------- display block & none 함수 정의
-const displaySwtich = (change, opt) => {
-  change === 'block' ? event.currentTarget.childNodes[6].style.display = change : event.currentTarget.style.display = change;
-  opt !== '' ? event.currentTarget.opt.style.display = change : '';
-};
+
 // select mobile
-document.querySelector('div.prov-box-container').addEventListener('click', () => {
-  event.currentTarget.childNodes[6].style.display = 'block'
-  event.currentTarget.childNodes[6].focus();
-});
-document.querySelector('ul.provider-box').addEventListener('blur', () => {
-  event.currentTarget.style.display = 'none';
+// document.querySelector('div.prov-box-container').addEventListener('click', () => {
+//   event.currentTarget.childNodes[6].style.display = 'block'
+//   event.currentTarget.childNodes[6].focus();
+//   console.dir(event.target);
+// });
+
+// 데이터 모델 (미정)
+const person = {
+  userId: String,
+  password: String,
+  mobile: String,
+  email: String,
+  birthday: String
+}
+
+const providerBox = document.querySelector('ul.provider-box');
+const mobileNum = document.querySelector('input.mobile-number');
+const inputValue = document.querySelectorAll('input');
+console.log(inputValue);
+
+document.querySelector('ion-icon.dropdown').addEventListener('click', () => {
+  providerBox.style.display = 'block';
+  providerBox.focus();
 })
-const providers = document.querySelectorAll('li.provider');
-providers.addEventListener('click', () => {
-  document.querySelector('input.mobile-number').value = event.target.textContent;
-  event.currentTarget.parentNode.style.display = 'none';
-  console.dir(event.currentTarget);
+providerBox.addEventListener('click', () => {
+  mobileNum.value = event.target.textContent; // 사용자 입력 발생
+  event.currentTarget.style.display = 'none';
 });
+// 드롭다운을 클릭했다가 아무 것도 선택하지 않을 때 처리
+providerBox.addEventListener('blur', () => {
+  event.currentTarget.style.display = 'none';
+});
+
+
 
 //-----------참고--mouseout-----------//
     // document.querySelector('div.prov-box-container').addEventListener('mouseout', () => {
