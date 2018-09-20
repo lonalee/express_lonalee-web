@@ -1,24 +1,7 @@
-
-// select mobile
-// document.querySelector('div.prov-box-container').addEventListener('click', () => {
-//   event.currentTarget.childNodes[6].style.display = 'block'
-//   event.currentTarget.childNodes[6].focus();
-//   console.dir(event.target);
-// });
-
-// 데이터 모델 (미정)
-const person = {
-  userId: String,
-  password: String,
-  mobile: String,
-  email: String,
-  birthday: String
-}
+// const GettingDB = require('../index').gettingDB();
 
 const providerBox = document.querySelector('ul.provider-box');
 const mobileNum = document.querySelector('input.mobile-number');
-const inputValue = document.querySelectorAll('input');
-console.log(inputValue);
 
 document.querySelector('ion-icon.dropdown').addEventListener('click', () => {
   providerBox.style.display = 'block';
@@ -110,26 +93,44 @@ document.querySelector('ul.day').addEventListener('blur', () => {
 })
 
 // -------------------******* client side AJAX request --------------------
-
+const person = {
+  userId: String,
+  password: String,
+  mobile: String,
+  email: String,
+  birthday: String
+}
 
 document.querySelector('button').addEventListener('click', function () {
+
+  // const xhr = new XMLHttpRequest();
+  // xhr.open('POST', '/people');
+
+  // // const inputValue = document.querySelectorAll('input');
+
+  // const payload = { username: 'lee', password:'asdf' };
+  // console.log(payload);
+
+  // xhr.setRequestHeader('Content-type', 'application/json');
+  // xhr.send(JSON.stringify(payload));
+
+  // xhr.onreadystatechange = function () {
+  //   if (xhr.readyState === XMLHttpRequest.DONE) {
+  //     if (xhr.status === 200) {
+  //       console.log(xhr.response)
+
+  //     } else {
+  //       console.log("Error!");
+  //     }
+  //   }
+  // };
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', '/signup');
-
-  const username = document.querySelector('input.username').value;
-  const password = document.querySelector('input.password').value;
-
-  const payload = { username, password };
-  console.log(payload);
-
-  xhr.setRequestHeader('Content-type', 'application/json');
-  xhr.send(JSON.stringify(payload));
-
+  xhr.open('GET', '/people');
+  console.log('work')
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         console.log(xhr.response)
-
       } else {
         console.log("Error!");
       }

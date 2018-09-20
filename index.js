@@ -30,11 +30,20 @@ app.get('/', function(request, response) {
   response.render('pages/index')
 });
 
-
 // 참고 url 요청
 // app.get('/cool', function(request, response) {
 //   response.send(cool());
 // });
+app.use('/people', require('./routes/people')); //라우터 사용
+//
+const Books = require('./models/books');
+app.get('/books', function(req,res){
+  Books.find(function(err, books){
+    if(err) return res.status(500).send({error: 'database failure'});
+    res.json(books);
+  });
+});
+//
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
