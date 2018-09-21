@@ -45,11 +45,21 @@ app.get('/books', function(req,res){
 });
 
 //
-const insertBook =   { title: "Example000", author: "Kim", price: 200000 };
-app.post('/books', function (insertBook, res){
-  Books.create(insertBook.body)
-  .then(book => res.send(book))
-  .catch(err => res.status(500).send(err));
+
+app.post('/books', (req, res) => {
+  const insertBook = { title: "Example000", author: "Kim", price: 200000 };
+  // Books.create(insertBook.body)
+  // .then(book => res.send(book))
+  // .catch(err => res.status(500).send(err));
+  insertBook.save(function(err){
+    if(err){
+        console.error(err);
+        res.json({result: 0});
+        return;
+    }
+
+    res.json({result: 1});
+  });
 });
 
 app.listen(app.get('port'), function() {
