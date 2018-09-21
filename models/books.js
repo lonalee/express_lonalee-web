@@ -7,4 +7,11 @@ var booksSchema = new Schema({
   price : Number
 });
 
+booksSchema.statics.create = function (payload) {
+  // this === Model
+  const book = new this(payload);
+  // return Promise
+  return book.save();
+};
+
 module.exports = mongoose.model('books', booksSchema);

@@ -47,7 +47,7 @@ app.get('/books', function(req,res){
 //
 const insertBook =   { title: "Example000", author: "Kim", price: 200000 };
 app.post('/books', function (insertBook, res){
-  Books.create(insertBook)
+  Books.create(insertBook.body)
   .then(book => res.send(book))
   .catch(err => res.status(500).send(err));
 });
