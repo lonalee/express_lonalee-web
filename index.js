@@ -34,7 +34,7 @@ app.get('/', function(request, response) {
 // app.get('/cool', function(request, response) {
 //   response.send(cool());
 // });
-app.use('/people', require('./routes/people')); //라우터 사용
+app.use('/books', require('./routes/books')); //라우터 사용
 //
 const Books = require('./models/books');
 app.get('/books', function(req,res){
@@ -43,7 +43,11 @@ app.get('/books', function(req,res){
     res.json(books);
   });
 });
+
 //
+const insertBook =   { title: "Example000", author: "Kim", price: 200000 };
+
+router.post('/books', (insertBook, res));
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
