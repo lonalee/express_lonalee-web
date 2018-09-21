@@ -44,27 +44,41 @@ app.get('/books', function(req,res){
   });
 });
 
-//
-
-app.post('/books', (req, res) => {
-  const insertBook = Books();
-  console.log(insertBook);
-  insertBook.title = 'example000';
-  insertBook.author = 'choi';
-  insertBook.price = 20000;
-  // Books.create(insertBook.body)
-  // .then(book => res.send(book))
-  // .catch(err => res.status(500).send(err));
-  insertBook.save(function(err){
-    if(err){
+// 새로운 document의 생성
+// app.post('/books', (req, res) => {
+//   const insertBook = Books();   // Books 모델로 인스턴스를 생성
+//   insertBook.title = 'example000';
+//   insertBook.author = 'choi';
+//   insertBook.price = 20000;     // 데이터 임의 삽입
+//   insertBook.save(function(err){      // DB에 실질적으로 저장하는 코드
+//     if(err){                          // error 처리
+//         console.error(err);
+//         res.json({result: 0});
+//         return;
+//     }
+//     res.json({result: 1});            //  성공
+//   });
+// });
+const submit = (book) => {
+  console.log("it's index.js");
+app.post('/books', (book, res) => {
+  const insertBook = Books();   // Books 모델로 인스턴스를 생성
+  insertBook.title = book.title;
+  insertBook.author = book.author;
+  insertBook.price = book.price;     // 데이터 임의 삽입
+  insertBook.save(function(err){      // DB에 실질적으로 저장하는 코드
+    if(err){                          // error 처리
         console.error(err);
         res.json({result: 0});
         return;
     }
-    res.json({result: 1});
+    res.json({result: 1});            //  성공
   });
 });
+};
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+module.exports = submit;

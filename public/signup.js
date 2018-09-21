@@ -1,4 +1,5 @@
-// const GettingDB = require('../index').gettingDB();
+
+const submit = require('../index').submit();
 
 const providerBox = document.querySelector('ul.provider-box');
 const mobileNum = document.querySelector('input.mobile-number');
@@ -102,7 +103,8 @@ const person = {
 }
 
 document.querySelector('button').addEventListener('click', function () {
-
+  const book = { title: 'it works', author: 'YOU', price: '500'};
+  submit(book);
   // const xhr = new XMLHttpRequest();
   // xhr.open('POST', '/people');
 
@@ -124,16 +126,4 @@ document.querySelector('button').addEventListener('click', function () {
   //     }
   //   }
   // };
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', '/people');
-  console.log('work')
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        console.log(xhr.response)
-      } else {
-        console.log("Error!");
-      }
-    }
-  };
 });
