@@ -46,7 +46,11 @@ app.get('/books', function(req,res){
 
 //
 const insertBook =   { title: "Example000", author: "Kim", price: 200000 };
-app.post('/books', (insertBook, res));
+app.post('/books', function (insertBook, res){
+  Books.create(insertBook)
+  .then(book => res.send(book))
+  .catch(err => res.status(500).send(err));
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
