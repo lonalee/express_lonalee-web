@@ -37,12 +37,12 @@ app.get('/', function(request, response) {
 app.use('/books', require('./routes/books')); //라우터 사용
 //
 const Books = require('./models/books');
-app.get('/books', function(req,res){
-  Books.find(function(err, books){
-    if(err) return res.status(500).send({error: 'database failure'});
-    res.json(books);
-  });
-});
+// app.get('/books', function(req,res){
+//   Books.find(function(err, books){
+//     if(err) return res.status(500).send({error: 'database failure'});
+//     res.json(books);
+//   });
+// });
 
 //
 
@@ -57,7 +57,6 @@ app.post('/books', (req, res) => {
         res.json({result: 0});
         return;
     }
-
     res.json({result: 1});
   });
 });
