@@ -96,26 +96,27 @@ document.querySelector('ul.day').addEventListener('blur', () => {
 
 
 document.querySelector('button').addEventListener('click', function () {
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', '/signup');
+  console.log('book');
+  // const xhr = new XMLHttpRequest();
+  // xhr.open('POST', '/signup');
 
-  const username = document.querySelector('input.username').value;
-  const password = document.querySelector('input.password').value;
+  // const username = document.querySelector('input.username').value;
+  // const password = document.querySelector('input.password').value;
 
-  const payload = { username, password };
-  console.log(payload);
+  // const payload = { username, password };
+  // console.log(payload);
 
-  xhr.setRequestHeader('Content-type', 'application/json');
-  xhr.send(JSON.stringify(payload));
+  // xhr.setRequestHeader('Content-type', 'application/json');
+  // xhr.send(JSON.stringify(payload));
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        console.log(xhr.response)
+  // xhr.onreadystatechange = function () {
+  //   if (xhr.readyState === XMLHttpRequest.DONE) {
+  //     if (xhr.status === 200) {
+  //       console.log(xhr.response)
 
-      } else {
-        console.log("Error!");
-      }
-    }
-  };
+  //     } else {
+  //       console.log("Error!");
+  //     }
+  //   }
+  // };
 });

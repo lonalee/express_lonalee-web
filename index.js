@@ -59,26 +59,7 @@ app.get('/books', function(req,res){
 //     res.json({result: 1});            //  성공
 //   });
 // });
-const submit = (book) => {
-  console.log("it's index.js");
-app.post('/books', (book, res) => {
-  const insertBook = Books();   // Books 모델로 인스턴스를 생성
-  insertBook.title = book.title;
-  insertBook.author = book.author;
-  insertBook.price = book.price;     // 데이터 임의 삽입
-  insertBook.save(function(err){      // DB에 실질적으로 저장하는 코드
-    if(err){                          // error 처리
-        console.error(err);
-        res.json({result: 0});
-        return;
-    }
-    res.json({result: 1});            //  성공
-  });
-});
-};
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-
-module.exports = submit;
