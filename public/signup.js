@@ -101,10 +101,10 @@ const person = {
 }
 
 document.querySelector('button').addEventListener('click', function () {
-  const book = { title: 'it works', author: 'YOU', price: '500'};
+  const book = { title: 'it works', author: 'YOU', price: '500' };
   console.log(book);
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', '/books');
+  xhr.open('POST', '/');
 
   const payload = book;
 
