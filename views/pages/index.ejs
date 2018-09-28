@@ -1,75 +1,155 @@
-<!DOCTYPE html>
 <html lang="en">
-<!-- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>!!!edit ME!!</title>
-  <link rel="stylesheet" href="/public/stylesheets/signup.css">
-</head> -->
 <head>
   <% include ../partials/header.ejs %>
 </head>
 <body>
-  <div class="signup-container">
-    <div class="userId row"><span class="col">아이디</span>
-    <input class="username" type="text">
-    </div>
-    <div class="passwd row"><span class="col">패스워드</span>
-      <input class="password" type="text">
-    </div>
-    <div class="passwd row"><span class="col">패스워드 확인</span>
-      <input class="confirmed-password"type="text">
-    </div>
-    <div class="mobile row"><span class="col">휴대전화</span>
-      <div class="prov-box-container">
-        <input class="mobile-number" type="text">
-        <ion-icon name="arrow-dropdown" class="dropdown select-mobile"></ion-icon><span></span>
-            <ul tabindex="0" class="provider-box">
-              <li class="provider">SKT</li>
-              <li class="provider">KT</li>
-              <li class="provider">LGU+</li>
-            </ul>
-      </div>
-      <input class="mobile1" type="text"><span> &mdash;</span>
-      <input class="mobile2" type="text"><span> &mdash;</span>
-      <input class="mobile3" type="text">
-    </div>
-    <div class="email row"><span class="col">이메일</span>
-      <input class="emailId" type="text"><span>@</span>
-      <div class="email-box-container">
-        <input class="domain" type="text">
-        <ion-icon name="arrow-dropdown" class="dropdown select-email"></ion-icon><span></span>
-        <ul tabindex="0" class="email-domain-box">
-          <li class="domain">gmail.com</li>
-          <li class="domain">naver.com</li>
-          <li class="domain">hanmail.net</li>
-          <li class="domain">hotmail.com</li>
-          <li class="domain">chulian.net</li>
-          <li class="domain">lycos.com</li>
-          <li class="domain">fast.com</li>
-          <li class="domain">loola.net</li>
+  <div id="wrap">
+    <header>
+      <a href="/" class="logo">
+        <span class="id">LOGAN</span>
+      </a>
+      <nav>
+        <ul class="nav-items clearfix">
+          <li><a class="signup" href="#">Sign Up</a></li>
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
         </ul>
-      </div>
+      </nav>
+    </header>
+    <div id="content-wrap" class="content-wrap clearfix">
+      <aside>
+        <p>Where you are</p>
+        <ul>
+            <li><a href="#" class="active">London</a></li>
+            <li><a href="#">Paris</a></li>
+            <li><a href="#">Tokyo</a></li>
+            <li><a href="#">Newyork</a></li>
+        </ul>
+      </aside>
+      <section>
+        <article id="">
+          <h1>What’s wrong with it</h1>
+          <ul class="expressions">
+            <li><a href="">something fishy</a></li>
+            <li><a href="">have an eye for</a></li>
+            <li><a href="">look good in</a></li>
+            <li><a href="">take one's side against someone</a></li>
+          </ul>
+          </p>
+        </article>
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+              <div class="front">
+                <!-- front content -->
+                <article id="">
+                    <h1>What’s wrong with it</h1>
+                    <ul class="expressions">
+                      <li><a href="">something fishy</a></li>
+                      <li><a href="">have an eye for</a></li>
+                      <li><a href="">look good in</a></li>
+                      <li><a href="">take one's side against someone</a></li>
+                    </ul>
+                    <!-- <p class="dialogue">
+                        Your skirt is way too short.<br>
+                        What’s wrong with it?<br>
+                        You’re not wearing that to the party.<br>
+                        Mom! You don’t have an eye for fashion.<br>
+                        You’re impossible. You look good in everything.<br>
+                        You never take my side at all.<br>
+                      </p> -->
+                  </article>
+              </div>
+              <div class="back">
+                <!-- back content -->
+                <p class="dialogue">
+                    Your skirt is way too short.<br>
+                    What’s wrong with it?<br>
+                    You’re not wearing that to the party.<br>
+                    Mom! You don’t have an eye for fashion.<br>
+                    You’re impossible. You look good in everything.<br>
+                    You never take my side at all.<br>
+                </p>
+              </div>
+            </div>
+          </div>
+        <!-- <article id="">
+          <h1>I stayed up all night</h1>
+            <ul>
+              <li><a href=""></a></li>
+              <li><a href=""></a></li>
+              <li><a href=""></a></li>
+              <li><a href=""></a></li>
+            </ul>
+        </article>
+        <article id="">
+          <h1>Watch your language</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>Don’t even think about it</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>My back is killing me</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>I’ll see what I can do</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>What took you so long?</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>Anything good happen?</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>It’s coming up</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>Let me out over there</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>She was upset</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>You’re all talk</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>I go along with that</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>I'm sick of this</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>what brings you here</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>How did it go?</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>Math is not my thing.</h1>
+          <p></p>
+        </article>
+        <article id="">
+          <h1>I can't take it anymore.</h1>
+          <p></p>
+        </article> -->
+      </section>
     </div>
-    <div class="birth row"><span class="col" style="float:left">생년월일</span>
-      <div class="year" style="margin-left: 4px;"><input class="years" type="text"> <ion-icon name="arrow-dropdown" class="dropdown select-birth1"></ion-icon> <span> 년</span>
-        <ul class="year" tabindex="0"></ul>
-      </div>
-      <div class="month"><input class="months" type="text"> <ion-icon name="arrow-dropdown" class="dropdown select-birth2"></ion-icon> <span> 월</span>
-        <ul class="month" tabindex="0"></ul>
-    </div>
-      <div class="day"><input class="days" type="text"> <ion-icon name="arrow-dropdown" class="dropdown select-birth3"></ion-icon> <span> 일</span>
-        <ul class="day" tabindex="0"></ul>
-    </div>
-    </div>
-
-    <div class="signup">
-      <button class="btn-signup">회원가입</button>
-    </div>
-
-    <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
-    <!-- <script type="text/javascript" src="public/signup.js"></script> -->
-    <script type="text/javascript" src="./signup.js"></script>
+    <footer>© Copyright July. 22th. 2018. </footer>
+  </div>
+  <script src="./main.js"></script>
 </body>
 </html>

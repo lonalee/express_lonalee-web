@@ -1,0 +1,60 @@
+  <div class="signup-container">
+    <div class="userId row"><span class="col">아이디</span>
+    <input class="username" type="text">
+    </div>
+    <div class="passwd row"><span class="col">패스워드</span>
+      <input class="password" type="text">
+    </div>
+    <div class="passwd row"><span class="col">패스워드 확인</span>
+      <input class="confirmed-password"type="text">
+    </div>
+    <div class="mobile row"><span class="col">휴대전화</span>
+      <div class="prov-box-container">
+        <input class="mobile-number" type="text">
+        <ion-icon name="arrow-dropdown" class="dropdown select-mobile"></ion-icon><span></span>
+            <ul tabindex="0" class="provider-box">
+              <li class="provider">SKT</li>
+              <li class="provider">KT</li>
+              <li class="provider">LGU+</li>
+            </ul>
+      </div>
+      <input class="mobile1" type="text"><span> &mdash;</span>
+      <input class="mobile2" type="text"><span> &mdash;</span>
+      <input class="mobile3" type="text">
+    </div>
+    <div class="email row"><span class="col">이메일</span>
+      <input class="emailId" type="text"><span>@</span>
+      <div class="email-box-container">
+        <input class="domain" type="text">
+        <ion-icon name="arrow-dropdown" class="dropdown select-email"></ion-icon><span></span>
+        <ul tabindex="0" class="email-domain-box">
+          <li class="domain">gmail.com</li>
+          <li class="domain">naver.com</li>
+          <li class="domain">hanmail.net</li>
+          <li class="domain">hotmail.com</li>
+          <li class="domain">chulian.net</li>
+          <li class="domain">lycos.com</li>
+          <li class="domain">fast.com</li>
+          <li class="domain">loola.net</li>
+        </ul>
+      </div>
+    </div>
+    <div class="birth row"><span class="col" style="float:left">생년월일</span>
+      <div class="year" style="margin-left: 4px;"><input class="years" type="text"> <ion-icon name="arrow-dropdown" class="dropdown select-birth1"></ion-icon> <span> 년</span>
+        <ul class="year" tabindex="0"></ul>
+      </div>
+      <div class="month"><input class="months" type="text"> <ion-icon name="arrow-dropdown" class="dropdown select-birth2"></ion-icon> <span> 월</span>
+        <ul class="month" tabindex="0"></ul>
+    </div>
+      <div class="day"><input class="days" type="text"> <ion-icon name="arrow-dropdown" class="dropdown select-birth3"></ion-icon> <span> 일</span>
+        <ul class="day" tabindex="0"></ul>
+    </div>
+    </div>
+
+    <div class="signup">
+      <button class="btn-signup">회원가입</button>
+    </div>
+
+    <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
+    <!-- <script type="text/javascript" src="public/signup.js"></script> -->
+    <script type="text/javascript" src="./signup.js"></script>

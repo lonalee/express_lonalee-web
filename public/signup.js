@@ -1,3 +1,4 @@
+require('./routes/books'); //라우터 사용
 
 const providerBox = document.querySelector('ul.provider-box');
 const mobileNum = document.querySelector('input.mobile-number');

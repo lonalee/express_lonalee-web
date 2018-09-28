@@ -30,6 +30,7 @@ app.get('/', function(request, response) {
   response.render('pages/index')
 });
 
+
 // 참고 url 요청
 // app.get('/cool', function(request, response) {
 //   response.send(cool());
