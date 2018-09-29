@@ -4,7 +4,7 @@ var Schema   = mongoose.Schema;
 var booksSchema = new Schema({
   title : String,
   author: String,
-  price : Number
+  price : String
 });
 
 booksSchema.statics.create = function (payload) {

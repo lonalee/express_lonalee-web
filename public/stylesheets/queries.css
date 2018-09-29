@@ -1,0 +1,28 @@
+/*  */
+@media only screen and (max-width: 1375px) {
+  .row input {
+    width: 20%;
+  }
+}
+
+/*  */
+@media only screen and (max-width: 1023px) {
+  body {
+    font-size: 18px;
+  }
+  section {
+    padding: 60px 0;
+  }
+  .long-copy {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+/* small phones to small tablet from 481 to 767 */
+@media only screen and (max-width: 767px) {
+
+}
+/* small phones from 0 to 480*/
+@media only screen and (max-width: 480px) {
+
+}

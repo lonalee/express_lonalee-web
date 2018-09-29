@@ -120,7 +120,7 @@ footer {
 .signup-container {
   border: 1px solid black;
   width: 60%;
-  margin: 0 auto;
+  margin: 150px auto 0 auto;
   padding: 20px 50px;
   position: relative;
 }
@@ -140,8 +140,8 @@ div.row {
   display: inline-block;
   width: 128px;
   position: relative;
-  /* left: 60px; */
   padding-bottom: 5px;
+  margin-right: 33px;
 }
 .provider-box {
   width: 128px;
