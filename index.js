@@ -39,7 +39,7 @@ app.get('/signup',function(req,res){
 });
 
 app.use('/books', require('./routes/books')); //라우터 사용
-//
+
 const Books = require('./models/books');
 app.get('/books', function(req,res){
   Books.find(function(err, books){
@@ -49,16 +49,17 @@ app.get('/books', function(req,res){
 });
 
 // 새로운 document의 생성
-app.post('/books', (req, res) => {
+app.post('/books', (request, response) => {
   const insertBook = Books();   // Books 모델로 인스턴스를 생성
-  insertBook = req.body;
+  insertBook = request.body;
+  console.log(request.body);
   insertBook.save(function(err){      // DB에 실질적으로 저장하는 코드
     if(err){                          // error 처리
         console.error(err);
-        res.json({result: 0});
+        response.json({result: 0});
         return;
     }
-    res.json({result: 1});            //  성공
+    response.json({result: 1});            //  성공
   });
 });
 
