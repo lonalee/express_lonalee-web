@@ -1,4 +1,4 @@
-require('./routes/books'); //라우터 사용
+
 
 const providerBox = document.querySelector('ul.provider-box');
 const mobileNum = document.querySelector('input.mobile-number');
@@ -105,12 +105,10 @@ document.querySelector('button').addEventListener('click', function () {
   const book = { title: 'it works', author: 'YOU', price: '500' };
   console.log(book);
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', '/');
-
-  const payload = book;
+  xhr.open('POST', '/books');
 
   xhr.setRequestHeader('Content-type', 'application/json');
-  xhr.send(JSON.stringify(payload));
+  xhr.send(JSON.stringify(book));
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {

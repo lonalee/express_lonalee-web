@@ -5,20 +5,19 @@ console.log(signup);
 // ajax request로 xhr open
 document.querySelector('a.signup').addEventListener('click', () => {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', '/signup.ejs');
+  // xhr.open('GET', '/signup.ejs');
+  xhr.open('GET', '/signup');
   xhr.send();
 
   //
   xhr.onreadystatechange = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
-        document.querySelector('div#content-wrap').innerHTML = xhr.responseText;
+        // document.querySelector('div#content-wrap').innerHTML = xhr.responseText;
+        console.log(xhr.responseText);
       } else {
         console.log('[' + xhr.status + ']: ' + xhr.statusText);
       }
     }
   }
 });
-
-
-// signup DATA POST

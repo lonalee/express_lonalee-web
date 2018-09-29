@@ -4,6 +4,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var app = express();
+var path    = require("path");
+
 
 app.set('port', (process.env.PORT || 9999));
 
@@ -29,12 +31,13 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 app.get('/', function(request, response) {
   response.render('pages/index')
 });
+// app.get('/signup', (req, res) => {
+//   res.sendFile('pages/signup.ejs')
+// })
+app.get('/signup',function(req,res){
+  res.render(path.join(__dirname+'/views/pages/signup.ejs'));
+});
 
-
-// 참고 url 요청
-// app.get('/cool', function(request, response) {
-//   response.send(cool());
-// });
 app.use('/books', require('./routes/books')); //라우터 사용
 //
 const Books = require('./models/books');
@@ -46,20 +49,18 @@ app.get('/books', function(req,res){
 });
 
 // 새로운 document의 생성
-// app.post('/books', (req, res) => {
-//   const insertBook = Books();   // Books 모델로 인스턴스를 생성
-//   insertBook.title = 'example000';
-//   insertBook.author = 'choi';
-//   insertBook.price = 20000;     // 데이터 임의 삽입
-//   insertBook.save(function(err){      // DB에 실질적으로 저장하는 코드
-//     if(err){                          // error 처리
-//         console.error(err);
-//         res.json({result: 0});
-//         return;
-//     }
-//     res.json({result: 1});            //  성공
-//   });
-// });
+app.post('/books', (req, res) => {
+  const insertBook = Books();   // Books 모델로 인스턴스를 생성
+  insertBook = req.body;
+  insertBook.save(function(err){      // DB에 실질적으로 저장하는 코드
+    if(err){                          // error 처리
+        console.error(err);
+        res.json({result: 0});
+        return;
+    }
+    res.json({result: 1});            //  성공
+  });
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
