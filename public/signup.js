@@ -24,44 +24,52 @@
     // })
 
 //email select box
-document.querySelector('div.email-box-container').addEventListener('click', () => {
-  console.log(event.currentTarget.childNodes[6]);
-  event.currentTarget.childNodes[6].style.display = 'block';
-  event.currentTarget.childNodes[6].focus();
-})
+const emailContainer = document.querySelector('div.email-box-container');
+const domain = document.querySelector('ul.email-domain-box');  // *********nodelist에는 addEventlistener method가 없음. 배열 요소 각각에서 사용가능함*******
+
+emailContainer.addEventListener('click', () => {
+  if(event.target.nodeName === 'INPUT') return;
+  else {
+    event.currentTarget.childNodes[6].style.display = 'block';
+    event.currentTarget.childNodes[6].focus();
+        domain.addEventListener('click', () => {
+          emailContainer.childNodes[1].value = event.target.textContent;
+          });
+  }
+});
 document.querySelector('ul.email-domain-box').addEventListener('blur', () => {
   event.target.style.display = 'none';
 })
 
 //--------------------생년월일 innerHTML 함수
-const birthRender = () => {
-  const birth = {
-    arrYear: [],
-    arrMonth: [],
-    arrDay: []
-  };
-  for (i = 0; i < 91; i++) {
-    birth.arrYear[i] = i + 1910;
-    if (i < 12) birth.arrMonth[i] = i + 1;
-    if (i < 31) birth.arrDay[i] = i + 1;
-  }
-  birth.arrYear.forEach(n => {
-    document.querySelector('ul.year').innerHTML += `
-      <li>${n}</li>
-    `
-  });
-  birth.arrMonth.forEach(n => {
-    document.querySelector('ul.month').innerHTML += `
-      <li>${n}</li>
-    `
-  });
-  birth.arrDay.forEach(n => {
-    document.querySelector('ul.day').innerHTML += `
-      <li>${n}</li>
-    `
-  });
-};
-birthRender();
+// const birthRender = () => {
+//   const birth = {
+//     arrYear: [],
+//     arrMonth: [],
+//     arrDay: []
+//   };
+//   for (i = 0; i < 91; i++) {
+//     birth.arrYear[i] = i + 1910;
+//     if (i < 12) birth.arrMonth[i] = i + 1;
+//     if (i < 31) birth.arrDay[i] = i + 1;
+//   }
+//   birth.arrYear.forEach(n => {
+//     document.querySelector('ul.year').innerHTML += `
+//       <li>${n}</li>
+//     `
+//   });
+//   birth.arrMonth.forEach(n => {
+//     document.querySelector('ul.month').innerHTML += `
+//       <li>${n}</li>
+//     `
+//   });
+//   birth.arrDay.forEach(n => {
+//     document.querySelector('ul.day').innerHTML += `
+//       <li>${n}</li>
+//     `
+//   });
+// };
+// birthRender();
 
 // -------------------******* client side AJAX request --------------------
 const inputUser = document.querySelectorAll('input');
