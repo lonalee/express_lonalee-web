@@ -50,9 +50,8 @@ app.get('/books', function(req,res){
 
 // 새로운 document의 생성
 app.post('/books', (request, response) => {
-  const insertBook = Books();   // Books 모델로 인스턴스를 생성
-  insertBook = request.body;
-  console.log(request.body);
+  const insertBook = new Books(request.body);   // Books 모델로 인스턴스를 생성
+  // insertBook = request.body;
   insertBook.save(function(err){      // DB에 실질적으로 저장하는 코드
     if(err){                          // error 처리
         console.error(err);
