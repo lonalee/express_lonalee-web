@@ -93,30 +93,32 @@ document.querySelector('ul.day').addEventListener('blur', () => {
 })
 
 // -------------------******* client side AJAX request --------------------
-const person = {
-  userId: String,
-  password: String,
-  mobile: String,
-  email: String,
-  birthday: String
-}
-
-document.querySelector('button').addEventListener('click', function () {
-  const book = { title: 'it works', author: 'YOU', price: '500' };
-
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', '/books');
-  xhr.setRequestHeader('Content-type', 'application/json');
-  xhr.send(JSON.stringify(book));
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        console.log(xhr.response)
-
-      } else {
-        console.log("Error!");
-      }
-    }
+const inputUser = document.querySelectorAll('input');
+document.querySelector('button').addEventListener('click', () => {
+  // const book = { title: 'it works', author: 'YOU', price: '500' };
+  const user = {
+    userId: String,
+    password: String,
+    email: String
   };
+
+  for (let i = 0; i<12; i++) {
+    console.log(inputUser[i].value);
+  }
+
+  // const xhr = new XMLHttpRequest();
+  // xhr.open('POST', '/books');
+  // xhr.setRequestHeader('Content-type', 'application/json');
+  // xhr.send(JSON.stringify(book));
+
+  // xhr.onreadystatechange = function () {
+  //   if (xhr.readyState === XMLHttpRequest.DONE) {
+  //     if (xhr.status === 200) {
+  //       console.log(xhr.response)
+
+  //     } else {
+  //       console.log("Error!");
+  //     }
+  //   }
+  // };
 });
