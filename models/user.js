@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const personSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -14,12 +14,12 @@ const personSchema = new mongoose.Schema(
 );
 // default 옵션도 있음
 
-personSchema.statics.create = (payload) => {
+userSchema.statics.create = (payload) => {
   // this === Model
-  const person = new this(payload);
+  const user = new this(payload);
   // return Promise
-  return person.save();
+  return user.save();
 };
 
 // 모델의 생성과 외부 export
-module.exports = mongoose.model('Person', personSchema);
+module.exports = mongoose.model('User', personSchema);

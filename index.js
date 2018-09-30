@@ -39,6 +39,7 @@ app.get('/signup',function(req,res){
 });
 
 app.use('/books', require('./routes/books')); //라우터 사용
+app.use('/users', require('./routes/users')); //라우터 사용
 
 const Books = require('./models/books');
 app.get('/books', function(req,res){
@@ -61,6 +62,17 @@ app.post('/books', (request, response) => {
     response.json({result: 1});            //  성공
   });
 });
+
+const Users = require('./models/user');
+app.post('/users', (req, res) => {
+  const createUser = new Users(req.body);
+  createUser.save((err) => {
+    if(err) {
+      console.log(err);
+      response.json({result: 0});
+    } else response.json({result: 1});
+  })
+})
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
