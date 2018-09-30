@@ -40,15 +40,15 @@ app.get('/signup',function(req,res){
 
 app.use('/books', require('./routes/books')); //라우터 사용
 app.use('/users', require('./routes/users')); //라우터 사용
-
 const Books = require('./models/books');
+const Users = require('./models/user');
+
 app.get('/books', function(req,res){
   Books.find(function(err, books){
     if(err) return res.status(500).send({error: 'database failure'});
     res.json(books);
   });
 });
-
 // 새로운 document의 생성
 app.post('/books', (request, response) => {
   const insertBook = new Books(request.body);   // Books 모델로 인스턴스를 생성
@@ -62,8 +62,12 @@ app.post('/books', (request, response) => {
     response.json({result: 1});            //  성공
   });
 });
-
-const Users = require('./models/user');
+app.get('/users', (req, res) => {
+  Users.find((err, users) => {
+    if(err) return res.status(500).send({error: 'DB failure'});
+    else res.json(users);
+  });
+});
 app.post('/users', (req, res) => {
   const createUser = new Users(req.body);
   createUser.save((err) => {
