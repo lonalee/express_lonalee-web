@@ -67,29 +67,23 @@ birthRender();
 const inputUser = document.querySelectorAll('input');
 document.querySelector('button').addEventListener('click', () => {
   // const book = { title: 'it works', author: 'YOU', price: '500' };
+  console.log(inputUser);
   const user = {
-    userId: String,
-    password: String,
-    email: String
+    userId: inputUser[0].value,
+    password: inputUser[1].value,
+    email: inputUser[2].value
   };
 
-  for (let i = 0; i<12; i++) {
-    console.log(inputUser[i].value);
-  }
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/users');
+  xhr.setRequestHeader('Content-type', 'application/json');
+  xhr.send(JSON.stringify(user));
 
-  // const xhr = new XMLHttpRequest();
-  // xhr.open('POST', '/books');
-  // xhr.setRequestHeader('Content-type', 'application/json');
-  // xhr.send(JSON.stringify(book));
-
-  // xhr.onreadystatechange = function () {
-  //   if (xhr.readyState === XMLHttpRequest.DONE) {
-  //     if (xhr.status === 200) {
-  //       console.log(xhr.response)
-
-  //     } else {
-  //       console.log("Error!");
-  //     }
-  //   }
-  // };
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        console.log(xhr.response)
+      } else console.log("Error!");
+    }
+  };
 });
