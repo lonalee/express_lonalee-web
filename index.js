@@ -65,7 +65,7 @@ app.post('/books', (request, response) => {
 app.get('/users', (req, res) => {
   Users.find((err, users) => {
     if(err) return res.status(500).send({error: 'DB failure'});
-    else res.json(users);
+    res.json(users);
   });
 });
 app.post('/users', (req, res) => {
@@ -76,6 +76,10 @@ app.post('/users', (req, res) => {
       response.json({result: 0});
     } else response.json({result: 1});
   })
+})
+// gallery routing
+app.get('/gallery', (req, res) => {
+  res.render(path.join(__dirname+'/views/pages/gallery.ejs'))
 })
 
 app.listen(app.get('port'), function() {

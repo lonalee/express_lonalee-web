@@ -213,3 +213,70 @@ div.row {
   text-align: center;
   margin-top: 20px;
 }
+
+/* ------------img carousel-------------- */
+
+
+.carousel-container {
+  width: 898px;
+  height: 250px;
+  margin: 0 auto;
+  border: 1px solid yellow;
+  position: relative;
+  overflow: hidden;
+  padding: 10px 20px;
+}
+
+.meal-carousel {
+  list-style: none;
+  width: 302.5px;
+  float: left;
+  background-color: #000;
+  overflow: hidden;
+}
+.meal-carousel img:hover {
+  opacity: 1;
+  transform: scale(1.031);
+}
+.meals-carousel li {
+  list-style: none;
+}
+
+.meal-carousel img {
+  width: 100%;
+  height: 25%;
+  opacity: 0.5;
+  transform: scale(1.2);
+  transition: transform 0.5s, opacity 0.5s;
+}
+.carousel-box {
+  width: 5000px;
+  height: 250px;
+  position: absolute;
+  transform: translateX(-937px);
+}
+
+.btn2 {
+  position: absolute;
+  height: 228px;
+  font-size: 200%;
+  background-color: white;
+  color: orange;
+  border: white;
+  /* top: 947px; */
+  cursor: pointer;
+}
+.btn-left {
+  left: 0;
+  /* margin-left: 250px; */
+}
+.btn-right {
+  right: 0;
+  /* margin-right: 250px; */
+}
+.move-right {
+  transform: translateX(-886px);
+  transition: transform 1s;
+}
+
+/* ---------End of img carousel---------- */
