@@ -75,13 +75,12 @@ document.querySelector('ul.email-domain-box').addEventListener('blur', () => {
 const inputUser = document.querySelectorAll('input');
 document.querySelector('button').addEventListener('click', () => {
   // const book = { title: 'it works', author: 'YOU', price: '500' };
-  console.log(inputUser);
   const user = {
     userId: inputUser[0].value,
     password: inputUser[1].value,
     email: inputUser[2].value
   };
-
+  console.log(user);
   const xhr = new XMLHttpRequest();
   xhr.open('POST', '/users');
   xhr.setRequestHeader('Content-type', 'application/json');
@@ -91,7 +90,7 @@ document.querySelector('button').addEventListener('click', () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         console.log(xhr.response)
-      } else console.log("Error!");
+      } else console.log(xhr.status);
     }
   };
 });

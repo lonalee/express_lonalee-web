@@ -20,4 +20,4 @@ userSchema.statics.create = (payload) => {
 };
 
 // 모델의 생성과 외부 export
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('user', userSchema);

@@ -41,7 +41,7 @@ app.get('/signup',function(req,res){
 app.use('/books', require('./routes/books')); //라우터 사용
 app.use('/users', require('./routes/users')); //라우터 사용
 const Books = require('./models/books');
-const Users = require('./models/user');
+const User = require('./models/user');
 
 app.get('/books', function(req,res){
   Books.find(function(err, books){
@@ -69,7 +69,7 @@ app.get('/users', (req, res) => {
   });
 });
 app.post('/users', (req, res) => {
-  const createUser = new Users(req.body);
+  const createUser = new User(req.body);
   createUser.save((err) => {
     if(err) {
       console.log(err);
